@@ -1,11 +1,16 @@
+using MarcoHelpers;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NeedMeter : MonoBehaviour
 {
+    [Header("Type")]
+    public Needs need;
+
     [Header("Decay")]
     public float decayRateInSeconds;
     public float timerInterval;
+    public bool isDecayActive = true;
 
     private Slider slider;
 
@@ -14,20 +19,64 @@ public class NeedMeter : MonoBehaviour
         slider= GetComponentInChildren<Slider>();
     }
 
+    private void OnEnable()
+    {
+        SetValue(NeedManager.Instance.GetValue(need));
+        SetDecayManual(need, NeedManager.Instance.GetDecayValue(need));
+        EventSystem.Subscribe(EventName.NEEDMANAGER_UPDATE, OnNeedValueChanged);
+        EventSystem.Subscribe(EventName.SET_DECAY_ACTIVE, SetDecayActive);
+    }
+
+    private void OnDisable()
+    {
+        EventSystem.Unsubscribe(EventName.NEEDMANAGER_UPDATE, OnNeedValueChanged);
+        EventSystem.Unsubscribe(EventName.SET_DECAY_ACTIVE, SetDecayActive);
+    }
+
     public void Start()
     {
         InvokeRepeating(nameof(Decay), 0.0f, timerInterval);
     }
 
-    public void Decay(/*object sender, ElapsedEventArgs e*/)
+    public void Decay()
     {
+        if (!isDecayActive || !gameObject.activeInHierarchy) { return; }
+
         float newValue = Mathf.Clamp01(slider.value - decayRateInSeconds * timerInterval);
         Debug.Log(newValue);
         slider.value = newValue;
+        NeedManager.Instance.SetValue(need, newValue);
     }
 
-    public void Retrieve(float percent)
+/*    public void Retrieve(float percent)
     {
         slider.value = Mathf.Clamp01(slider.value + percent);
+    }*/
+
+    public void OnNeedValueChanged(Needs changedNeed, float value)
+    {
+        if (this.need == changedNeed)
+            SetValue(value);
+    }
+
+    public void SetValue(float value)
+    {
+        value = Mathf.Clamp01(value);
+        slider.value = value;
+    }
+
+    public void SetDecayActive(Needs changedNeed, float isActiveValue)
+    {
+        if (this.need == changedNeed)
+        {
+            bool isActive = isActiveValue > 0.5f;
+            isDecayActive = isActive;
+        }
+
+    }
+
+    private void SetDecayManual(Needs need, bool isActive)
+    {
+        isDecayActive= isActive;
     }
 }
