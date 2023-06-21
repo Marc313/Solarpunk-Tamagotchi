@@ -3136,6 +3136,7 @@ GameObject:
   - component: {fileID: 1248386228}
   - component: {fileID: 1248386227}
   - component: {fileID: 1248386226}
+  - component: {fileID: 1248386229}
   m_Layer: 5
   m_Name: Endless Runner
   m_TagString: Untagged
@@ -3208,41 +3209,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1305308353}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1248386229}
+        m_TargetAssemblyTypeName: AddNeedValue, Assembly-CSharp
+        m_MethodName: AddNeed
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.6
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1669974968}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1820500567}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1035528719}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1248386227
 MonoBehaviour:
@@ -3282,6 +3271,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248386224}
   m_CullTransparentMesh: 1
+--- !u!114 &1248386229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248386224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a6ae604a15e0e4c8bb6b33a3225902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  need: 0
 --- !u!1 &1305308353
 GameObject:
   m_ObjectHideFlags: 0
@@ -4140,6 +4142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1820500565}
   - component: {fileID: 1820500566}
+  - component: {fileID: 1820500567}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -4177,6 +4180,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   humidityText: {fileID: 790090423}
   refreshWaterText: {fileID: 1771325506}
+--- !u!114 &1820500567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820500564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f082b2817c69d47907b41f9e3b2173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1916322854
 GameObject:
   m_ObjectHideFlags: 0
