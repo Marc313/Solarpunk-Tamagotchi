@@ -22,10 +22,10 @@ public class NeedMeter : MonoBehaviour
 
     private void OnEnable()
     {
-        SetValue(NeedManager.Instance.GetValue(need));
-        SetDecayManual(need, NeedManager.Instance.GetDecayValue(need));
         EventSystem.Subscribe(EventName.NEEDMANAGER_UPDATE, OnNeedValueChanged);
         EventSystem.Subscribe(EventName.SET_DECAY_ACTIVE, SetDecayActive);
+        SetValue(NeedManager.Instance.GetValue(need));
+        SetDecayManual(need, NeedManager.Instance.GetDecayValue(need));
     }
 
     private void OnDisable()
@@ -46,7 +46,6 @@ public class NeedMeter : MonoBehaviour
         if (!isDecayActive || !gameObject.activeInHierarchy) { return; }
 
         float newValue = Mathf.Clamp01(slider.value - decayRateInSeconds * timerInterval);
-        Debug.Log(newValue);
         slider.value = newValue;
         NeedManager.Instance.SetValue(need, newValue);
     }
