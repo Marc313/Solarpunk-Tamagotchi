@@ -4,13 +4,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Forward Force")]
-    [SerializeField] private float speed;
+    [SerializeField] private float startSpeed;
+    [SerializeField] private float speedIncreasePerSecond;
+    [SerializeField] private float gravityStrenght;
 
     private bool isActive = true;
     private Rigidbody rigidBody;
+    private Animator anim;
 
     private float lastSpawnZPos;
     private float spawnInterval;
+    private bool gravityEnabled;
 
     // Touch detection
     private Vector2 startTouchPosition;
@@ -19,6 +23,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -32,6 +37,9 @@ public class Player : MonoBehaviour
     {
         if (!isActive) return;
 
+        startSpeed += speedIncreasePerSecond * Time.deltaTime;
+        anim.speed = 0.8f * (startSpeed / 10000);
+
         // Constant force
         ApplyForwardForce();
 
@@ -40,6 +48,33 @@ public class Player : MonoBehaviour
 
         // Check for Floor Spawn
         CheckForFloorSpawn();
+
+        if (gravityEnabled)
+        {
+            ApplyGravity();
+        }
+    }
+
+    public void EnableGravity()
+    {
+        gravityEnabled = true;
+        Invoke(nameof(DisableGravity), .9f);
+    }
+
+    public void DisableGravity()
+    {
+        gravityEnabled= false;
+
+        Vector3 velocity = rigidBody.velocity;
+        velocity.y = 0;
+        rigidBody.velocity = velocity;
+    }
+
+    private void ApplyGravity()
+    {
+        Vector3 velocity = rigidBody.velocity;
+        velocity.y -= gravityStrenght * Time.deltaTime;
+        rigidBody.velocity = velocity;
     }
 
     private void CheckForFloorSpawn()
@@ -91,7 +126,7 @@ public class Player : MonoBehaviour
     private void ApplyForwardForce()
     {
         Debug.Log("Whooshh");
-        rigidBody.AddForce(speed * Vector3.forward * Time.deltaTime, ForceMode.Force);
+        rigidBody.AddForce(startSpeed * Vector3.forward * Time.deltaTime, ForceMode.Force);
     }
 
     public void OnHit()

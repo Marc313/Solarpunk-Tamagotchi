@@ -1,6 +1,7 @@
 using MarcoHelpers;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public enum Needs
 {
@@ -13,12 +14,15 @@ public enum Needs
 public class NeedManager : Singleton<NeedManager>
 {
     [SerializeField] private float startValue = 0.5f;
-    private Dictionary<Needs, float> needValues = new Dictionary<Needs, float>();
-    private Dictionary<Needs, bool> needActivation = new Dictionary<Needs, bool>();
+    private static Dictionary<Needs, float> needValues = new Dictionary<Needs, float>();
+    private static Dictionary<Needs, bool> needActivation = new Dictionary<Needs, bool>();
+    private static bool isStarted = false;
 
     private void Awake()
     {
-        Instance= this;
+        if (isStarted) return;
+
+        Instance = this;
 
         needValues.Add(Needs.Fun, startValue);
         needValues.Add(Needs.Food, startValue);
@@ -29,6 +33,13 @@ public class NeedManager : Singleton<NeedManager>
         needActivation.Add(Needs.Food, true);
         needActivation.Add(Needs.Hygiene, true);
         needActivation.Add(Needs.Air, true);
+
+        EventSystem.RaiseEvent(EventName.NEEDMANAGER_UPDATE, Needs.Fun, startValue);
+        EventSystem.RaiseEvent(EventName.NEEDMANAGER_UPDATE, Needs.Air, startValue);
+        EventSystem.RaiseEvent(EventName.NEEDMANAGER_UPDATE, Needs.Hygiene, startValue);
+        EventSystem.RaiseEvent(EventName.NEEDMANAGER_UPDATE, Needs.Food, startValue);
+
+        isStarted = true;
     }
 
     public float GetValue(Needs need)

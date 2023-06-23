@@ -1,4 +1,5 @@
 using MarcoHelpers;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +36,8 @@ public class NeedMeter : MonoBehaviour
 
     public void Start()
     {
+        SetValue(NeedManager.Instance.GetValue(need));
+        SetDecayManual(need, NeedManager.Instance.GetDecayValue(need));
         InvokeRepeating(nameof(Decay), 0.0f, timerInterval);
     }
 
