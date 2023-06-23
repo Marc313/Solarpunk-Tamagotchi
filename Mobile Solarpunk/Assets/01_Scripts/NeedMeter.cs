@@ -1,5 +1,4 @@
 using MarcoHelpers;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +13,9 @@ public class NeedMeter : MonoBehaviour
     public bool isDecayActive = true;
 
     private Slider slider;
+
+    [Header("Bar UI")]
+    public GameObject bar;
 
     private void Awake()
     {
@@ -65,6 +67,9 @@ public class NeedMeter : MonoBehaviour
     {
         value = Mathf.Clamp01(value);
         slider.value = value;
+
+        float newValue = Helpers.Map(0f, 1f, 0.75f, 0.1f, value);
+        bar.GetComponent<MeshRenderer>().material.SetFloat("_BarSlider", newValue);
     }
 
     public void SetDecayActive(Needs changedNeed, float isActiveValue)
