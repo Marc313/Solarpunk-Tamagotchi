@@ -19,7 +19,10 @@ public class Spawner : Singleton<Spawner>
 
     private void Start()
     {
-        startPosition= transform.position;
+        startPosition = transform.position;
+        SpawnFloor();
+        SpawnFloor();
+        SpawnFloor();
         SpawnFloor();
     }
 
