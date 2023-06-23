@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2567891828077829164
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterMeter
-  m_Shader: {fileID: -6465566751694194690, guid: 00969f4ce9db9124a95c111ec1b9f95a,
+  m_Name: WaterRefreshButtons
+  m_Shader: {fileID: -6465566751694194690, guid: 5efdd0d1b540875438546f10abff0780,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -77,20 +64,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_0d4ec440a81e443b9446f0cb9b48f37b_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: e42c2167d5bbe2e4aa249d4ddbbe7f12, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_d21455f241ed4e76882cab64904081b4_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: b27867299cfac1c44a4eb25f52017a8d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_d89cf9d1794d4f4daf906eaff2948e81_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 13438bfb2e7cc3749a5747757c1ca63e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_f07ec0579eda4987a8f6a0ebe46d0afb_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: d3d6a16d2fc72284b8c38a3302588a2e, type: 3}
+    - _SampleTexture2D_2a7f9c25c6f1451285003f15b15b12a8_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: eca88cac00f1ac24c9094da601ad72a2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -134,7 +109,6 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Slider: -0.1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -149,3 +123,16 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &4560634779571909951
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
