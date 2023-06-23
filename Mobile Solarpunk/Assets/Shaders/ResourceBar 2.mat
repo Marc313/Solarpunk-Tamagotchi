@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2567891828077829164
+--- !u!114 &-301905296829367803
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterMeter
-  m_Shader: {fileID: -6465566751694194690, guid: 00969f4ce9db9124a95c111ec1b9f95a,
+  m_Name: ResourceBar 2
+  m_Shader: {fileID: -6465566751694194690, guid: 1f3d31d3365be734fa324fa40444882f,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -77,20 +77,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_0d4ec440a81e443b9446f0cb9b48f37b_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: e42c2167d5bbe2e4aa249d4ddbbe7f12, type: 3}
+    - _SampleTexture2D_34d9997088f6480ea731811d6f05b3bc_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 2448d54d7c6c6154cabcb59279712008, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_d21455f241ed4e76882cab64904081b4_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: b27867299cfac1c44a4eb25f52017a8d, type: 3}
+    - _SampleTexture2D_7b7e25282540405191219d4ba7e5e5a1_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 1082defe447be68438090dbd3745075a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_d89cf9d1794d4f4daf906eaff2948e81_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 13438bfb2e7cc3749a5747757c1ca63e, type: 3}
+    - _SampleTexture2D_af981dbacadb41a5bd1b7bc57772ea6a_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 12abee64c6b485e4dbc238ecb66b352d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_f07ec0579eda4987a8f6a0ebe46d0afb_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: d3d6a16d2fc72284b8c38a3302588a2e, type: 3}
+    - _SampleTexture2D_f7c48fbbd4b24badb04db1738d875785_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 958097f986c379241b0e95538e928bd0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -113,6 +113,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _BarSlider: 0.304
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -134,7 +135,6 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Slider: 0.02
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
