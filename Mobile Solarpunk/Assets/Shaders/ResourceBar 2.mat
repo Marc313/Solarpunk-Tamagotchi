@@ -113,7 +113,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _BarSlider: 0.304
+    - _BarSlider: 2.82
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
