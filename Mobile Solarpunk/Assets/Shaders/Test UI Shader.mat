@@ -111,7 +111,7 @@ Material:
     - _Intesity: 0.3
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Offset: 0.42
+    - _Offset: 0.302
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
