@@ -48,7 +48,7 @@ public class NeedMeter : MonoBehaviour
         if (!isDecayActive || !gameObject.activeInHierarchy) { return; }
 
         float newValue = Mathf.Clamp01(slider.value - decayRateInSeconds * timerInterval);
-        slider.value = newValue;
+        SetValue(newValue);
         NeedManager.Instance.SetValue(need, newValue);
     }
 
@@ -68,7 +68,7 @@ public class NeedMeter : MonoBehaviour
         value = Mathf.Clamp01(value);
         slider.value = value;
 
-        float newValue = Helpers.Map(0f, 1f, 0.75f, 0.1f, value);
+        float newValue = Helpers.Map(0f, 1f, 1.25f, 9.5f, value);
         bar.GetComponent<MeshRenderer>().material.SetFloat("_BarSlider", newValue);
     }
 
