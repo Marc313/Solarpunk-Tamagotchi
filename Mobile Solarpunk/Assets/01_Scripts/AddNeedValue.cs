@@ -6,6 +6,10 @@ public class AddNeedValue : MonoBehaviour
 
     public void AddNeed(float value)
     {
-        NeedManager.Instance.AddValue(need, value);
+        if (FoodManager.foodAmount > 0)
+        {
+            NeedManager.Instance.AddValue(need, value);
+            FoodManager.Instance.DecreaseFood();
+        }
     }
 }

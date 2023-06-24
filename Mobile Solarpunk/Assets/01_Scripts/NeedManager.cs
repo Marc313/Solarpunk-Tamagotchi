@@ -13,12 +13,15 @@ public enum Needs
 public class NeedManager : Singleton<NeedManager>
 {
     [SerializeField] private float startValue = 0.5f;
-    private Dictionary<Needs, float> needValues = new Dictionary<Needs, float>();
-    private Dictionary<Needs, bool> needActivation = new Dictionary<Needs, bool>();
+    private static Dictionary<Needs, float> needValues = new Dictionary<Needs, float>();
+    private static Dictionary<Needs, bool> needActivation = new Dictionary<Needs, bool>();
+    private static bool isStarted = false;
 
     private void Awake()
     {
-        Instance= this;
+        if (isStarted) return;
+
+        Instance = this;
 
         needValues.Add(Needs.Fun, startValue);
         needValues.Add(Needs.Food, startValue);
@@ -29,6 +32,13 @@ public class NeedManager : Singleton<NeedManager>
         needActivation.Add(Needs.Food, true);
         needActivation.Add(Needs.Hygiene, true);
         needActivation.Add(Needs.Air, true);
+
+        EventSystem.RaiseEvent(EventName.NEEDMANAGER_UPDATE, Needs.Fun, startValue);
+        EventSystem.RaiseEvent(EventName.NEEDMANAGER_UPDATE, Needs.Air, startValue);
+        EventSystem.RaiseEvent(EventName.NEEDMANAGER_UPDATE, Needs.Hygiene, startValue);
+        EventSystem.RaiseEvent(EventName.NEEDMANAGER_UPDATE, Needs.Food, startValue);
+
+        isStarted = true;
     }
 
     public float GetValue(Needs need)
@@ -51,6 +61,26 @@ public class NeedManager : Singleton<NeedManager>
         if (needValues.ContainsKey(need))
         {
             needValues[need] = value;
+        }
+
+        CheckWinCondition();
+    }
+
+    private void CheckWinCondition()
+    {
+        int goodNeeds = 0;
+        foreach (Needs need in needValues.Keys)
+        {
+            if (needValues[need] > 0.85f)
+            {
+                goodNeeds++;
+            }
+        }
+
+        if (goodNeeds == 4)
+        {
+            UIManager.Instance.ShowWinScreen();
+            Time.timeScale = 0.0f;
         }
     }
 

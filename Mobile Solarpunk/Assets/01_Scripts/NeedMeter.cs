@@ -14,6 +14,9 @@ public class NeedMeter : MonoBehaviour
 
     private Slider slider;
 
+    [Header("Bar UI")]
+    public GameObject bar;
+
     private void Awake()
     {
         slider= GetComponentInChildren<Slider>();
@@ -21,10 +24,10 @@ public class NeedMeter : MonoBehaviour
 
     private void OnEnable()
     {
-        SetValue(NeedManager.Instance.GetValue(need));
-        SetDecayManual(need, NeedManager.Instance.GetDecayValue(need));
         EventSystem.Subscribe(EventName.NEEDMANAGER_UPDATE, OnNeedValueChanged);
         EventSystem.Subscribe(EventName.SET_DECAY_ACTIVE, SetDecayActive);
+        SetValue(NeedManager.Instance.GetValue(need));
+        SetDecayManual(need, NeedManager.Instance.GetDecayValue(need));
     }
 
     private void OnDisable()
@@ -35,6 +38,8 @@ public class NeedMeter : MonoBehaviour
 
     public void Start()
     {
+        SetValue(NeedManager.Instance.GetValue(need));
+        SetDecayManual(need, NeedManager.Instance.GetDecayValue(need));
         InvokeRepeating(nameof(Decay), 0.0f, timerInterval);
     }
 
@@ -43,8 +48,7 @@ public class NeedMeter : MonoBehaviour
         if (!isDecayActive || !gameObject.activeInHierarchy) { return; }
 
         float newValue = Mathf.Clamp01(slider.value - decayRateInSeconds * timerInterval);
-        Debug.Log(newValue);
-        slider.value = newValue;
+        SetValue(newValue);
         NeedManager.Instance.SetValue(need, newValue);
     }
 
@@ -63,6 +67,9 @@ public class NeedMeter : MonoBehaviour
     {
         value = Mathf.Clamp01(value);
         slider.value = value;
+
+        float newValue = Helpers.Map(0f, 1f, 1.25f, 9.5f, value);
+        bar.GetComponent<MeshRenderer>().material.SetFloat("_BarSlider", newValue);
     }
 
     public void SetDecayActive(Needs changedNeed, float isActiveValue)
