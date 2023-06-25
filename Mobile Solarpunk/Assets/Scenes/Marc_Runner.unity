@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -543,7 +543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0.06061396, y: -0, z: -0, w: 0.9981613}
-  m_LocalPosition: {x: 0, y: 5.2, z: -13.3}
+  m_LocalPosition: {x: 0, y: 4.32, z: -11.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -853,6 +853,79 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &451560841
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1332451838}
+    m_Modifications:
+    - target: {fileID: 887333259549910685, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_Name
+      value: First Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -48.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78759cecc1680db409d590e4855b72db, type: 3}
 --- !u!1 &757801133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,6 +1423,7 @@ Transform:
   - {fileID: 1459818796}
   - {fileID: 1882639575}
   - {fileID: 2056921254}
+  - {fileID: 1596601729}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1366,9 +1440,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorOffset: 100
-  floorPrefab: {fileID: 423102025649212518, guid: 599f910d4772d0d4fb3a208e89d90fd8,
+  floorPrefab: {fileID: 887333259549910685, guid: 78759cecc1680db409d590e4855b72db,
     type: 3}
   floorCount: 1
+  firstFloorReference: {fileID: 1596601729}
   obstaclePrefab: {fileID: 1882639574}
   slopePrefab: {fileID: 4221116606481825874, guid: cf8d4d408ba919d44b05a6693ec58077,
     type: 3}
@@ -1377,6 +1452,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 405936710918282232, guid: 599f910d4772d0d4fb3a208e89d90fd8,
     type: 3}
   m_PrefabInstance: {fileID: 977251805279698947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1596601729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1687468759850340200, guid: 78759cecc1680db409d590e4855b72db,
+    type: 3}
+  m_PrefabInstance: {fileID: 451560841}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1723225713
 GameObject:
@@ -2015,6 +2096,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 423102025649212518, guid: 599f910d4772d0d4fb3a208e89d90fd8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8576300464438090293, guid: 599f910d4772d0d4fb3a208e89d90fd8,
         type: 3}

@@ -10540,8 +10540,8 @@ Transform:
   m_GameObject: {fileID: 887333259549910685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 19.554722, y: 11.624573, z: 35.73205}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.79999995, y: 0.79999995, z: 0.79999995}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7568583817269906923}
   - {fileID: 7385806912831076316}
@@ -11995,7 +11995,7 @@ Transform:
   - {fileID: 4687446319212512700}
   - {fileID: -8679921383154817045}
   m_Father: {fileID: 0}
-  m_RootOrder: 123
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &888899389589432438
 GameObject:
@@ -12921,6 +12921,7 @@ GameObject:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: -5754084199372789682}
   - component: {fileID: -7511558181221131132}
+  - component: {fileID: 2705241853958912113}
   m_Layer: 0
   m_Name: Enlessrunnerground
   m_TagString: Untagged
@@ -12993,6 +12994,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2705241853958912113
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149155446097}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.019999998, y: 0.019999994, z: 0.019999994}
+  m_Center: {x: 0, y: 9.313226e-10, z: -0.000000007450581}
 --- !u!1 &921068261932811735
 GameObject:
   m_ObjectHideFlags: 0

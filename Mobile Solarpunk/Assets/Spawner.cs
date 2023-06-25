@@ -5,12 +5,13 @@ public class Spawner : Singleton<Spawner>
     public float floorOffset;
     public GameObject floorPrefab;
     public float floorCount = 1;
+    public Transform firstFloorReference;
 
     [Header("Obstacles")]
     public GameObject obstaclePrefab;
     public GameObject slopePrefab;
 
-    private Vector3 startPosition;
+    private Vector3 FirstFloorPosition;
 
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class Spawner : Singleton<Spawner>
 
     private void Start()
     {
-        startPosition = transform.position;
+        FirstFloorPosition = firstFloorReference.transform.position;
         SpawnFloor();
         SpawnFloor();
         SpawnFloor();
@@ -28,7 +29,7 @@ public class Spawner : Singleton<Spawner>
 
     public void SpawnFloor()
     {
-        Vector3 newPosition = startPosition + Vector3.forward * ((floorOffset * floorCount));
+        Vector3 newPosition = FirstFloorPosition + Vector3.forward * ((floorOffset * floorCount));
         GameObject newFloor = Instantiate(floorPrefab, newPosition, Quaternion.identity, transform);
         floorCount++;
 
