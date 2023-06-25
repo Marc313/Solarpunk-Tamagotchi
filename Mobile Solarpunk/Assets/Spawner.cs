@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : Singleton<Spawner>
@@ -12,6 +13,8 @@ public class Spawner : Singleton<Spawner>
     public GameObject slopePrefab;
 
     private Vector3 FirstFloorPosition;
+    private List<GameObject> floorList = new List<GameObject>();
+    private int floorListIndex = 0;
 
     private void Awake()
     {
@@ -21,7 +24,7 @@ public class Spawner : Singleton<Spawner>
     private void Start()
     {
         FirstFloorPosition = firstFloorReference.transform.position;
-        SpawnFloor();
+        floorList.Add(firstFloorReference.gameObject);
         SpawnFloor();
         SpawnFloor();
         SpawnFloor();
@@ -31,6 +34,10 @@ public class Spawner : Singleton<Spawner>
     {
         Vector3 newPosition = FirstFloorPosition + Vector3.forward * ((floorOffset * floorCount));
         GameObject newFloor = Instantiate(floorPrefab, newPosition, Quaternion.identity, transform);
+        floorList.Add(newFloor);
+        if (floorListIndex - 3 > 0)
+            floorList[floorListIndex - 3].SetActive(false);
+        floorListIndex++;
         floorCount++;
 
         int obstacleCount = 0;
