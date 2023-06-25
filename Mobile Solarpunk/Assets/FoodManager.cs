@@ -5,11 +5,10 @@ public class FoodManager : Singleton<FoodManager>
     public int foodStartAmount;
     public static int foodAmount = 0;
     private static bool isStarted = false;
-    private TMP_Text feedText;
+    public TMP_Text feedText;
 
     private void Awake()
     {
-        feedText= GetComponentInChildren<TMP_Text>();
         if (isStarted) return;
 
         Instance = this;
@@ -25,7 +24,8 @@ public class FoodManager : Singleton<FoodManager>
     public void SetFoodAmount(int newAmount)
     {
         foodAmount = newAmount;
-        feedText.text = $"Feed ({newAmount})";
+        if (feedText != null)
+            feedText.text = $"Get Food ({newAmount})";
     }
 
     public void DecreaseFood()

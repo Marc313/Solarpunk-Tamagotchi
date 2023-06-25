@@ -25,6 +25,14 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    private void Update()
+    {
+        if (winScreen.activeSelf && Input.GetKey(KeyCode.Mouse0) || Input.touchCount > 0)
+        {
+            winScreen.SetActive(false);
+        }
+    }
+
     public void SetHumidityText(string text)
     {
         if (humidityText == null) return;

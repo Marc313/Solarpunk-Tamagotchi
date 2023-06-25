@@ -80,7 +80,6 @@ public class NeedManager : Singleton<NeedManager>
         if (goodNeeds == 4)
         {
             UIManager.Instance.ShowWinScreen();
-            Time.timeScale = 0.0f;
         }
     }
 
