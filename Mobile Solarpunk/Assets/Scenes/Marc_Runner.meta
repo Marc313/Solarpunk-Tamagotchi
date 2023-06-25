@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Mobile Solarpunk/Assets/Scenes/Marc_Runner.meta
 guid: 61a927a3dbbb2ee4a8cc705cc8250264
 folderAsset: yes
+========
+guid: bb07715ba75dbf44ab83b33bd4bf7101
+>>>>>>>> 3966eeb1410002d6f1204965b7980dedf48fec24:Mobile Solarpunk/Assets/Scenes/Main_Copy.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
