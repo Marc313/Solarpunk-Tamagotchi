@@ -25,7 +25,7 @@ public class FoodManager : Singleton<FoodManager>
     {
         foodAmount = newAmount;
         if (feedText != null)
-            feedText.text = $"Get Food ({newAmount})";
+            feedText.text = $"Current Food: {newAmount}";
     }
 
     public void DecreaseFood()

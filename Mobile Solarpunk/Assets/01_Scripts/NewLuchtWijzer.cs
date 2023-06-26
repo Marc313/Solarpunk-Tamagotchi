@@ -46,10 +46,7 @@ public class NewLuchtWijzer : MonoBehaviour
         active = false;
         GetComponent<MeshRenderer>().material.SetFloat("_Slider", currentValue);
 
-        Vector3 rotation = transform.rotation.eulerAngles;
-        float checkAngle = rotation.z > 180 ? rotation.z - 360 : rotation.z;
-
-        if (checkAngle > minTargetValue && checkAngle < maxTargetValue)
+        if (currentValue > minTargetValue && currentValue < maxTargetValue)
         {
             // Change Text
             UIManager.Instance.SetHumidityText("The humidity is just right!");

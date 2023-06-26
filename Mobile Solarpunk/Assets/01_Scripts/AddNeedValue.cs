@@ -11,5 +11,9 @@ public class AddNeedValue : MonoBehaviour
             NeedManager.Instance.AddValue(need, value);
             FoodManager.Instance.DecreaseFood();
         }
+        else if (need != Needs.Food)
+        {
+            NeedManager.Instance.AddValue(need, value);
+        }
     }
 }

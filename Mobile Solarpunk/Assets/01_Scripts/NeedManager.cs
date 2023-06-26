@@ -41,6 +41,14 @@ public class NeedManager : Singleton<NeedManager>
         isStarted = true;
     }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.P))
+        {
+            UpdateValue(Needs.Fun, 1.0f);
+        }
+    }
+
     public float GetValue(Needs need)
     {
         if (needValues.ContainsKey(need))
